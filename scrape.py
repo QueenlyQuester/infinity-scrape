@@ -48,14 +48,14 @@ def combine(elem):
     if response.status_code == 200:
         output = json.loads(response.text)
         return output
-    else if not response.ok:
+    elif not response.ok:
         print(f"API DIED WITH CODE {response.status_code}!!!! EXITING IMMEDIATELY!!!!")
         return None
     else:
         if not input(f"Warning! Response is code {response.status_code}, which is OK but unexpected. Continue anyways? (May break) [Y/N]").lower().startswith("y"):
             exit(1)
-        output = json.loads(response.text)
-        return output
+    output = json.loads(response.text)
+    return output
         
 
 def main():
